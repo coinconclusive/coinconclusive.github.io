@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'Fairfax HD';
+  src: url(font/FairfaxHD.ttf);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  width: 100vw;
+  min-height: 100%;
+  height: max-content;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: #0d0d0c;
+  color: #ab9d78;
+  font-family: 'Fairfax HD', monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 1rem;
+  width: 50%;
+  min-width: 350px;
+  background-color: #151513;
+}
+
+hgroup {
+  color: #8c8266;
+  text-align: center;
+}
+
+h1 { font-size: 28pt; }
+hgroup p { font-size: 14pt; }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 auto;
+}
+
+main > section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+main > section > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #585343;
+  width: 100%;
+}
+
+main > section > span::after {
+  content: "";
+  flex-grow: 1;
+  border-top: 1px dashed #585343;
+  margin-left: 1rem;
+}
+
+main > section > p {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+li::before {
+  content: "-";
+  color: #585343;
+  margin-right: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  color: #585343;
+}
