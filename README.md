@@ -3,6 +3,10 @@ my website :3
 
 ## `ahh` documentation
 
+> Ahh, you need a blog!
+>
+> Annie's Hypertext Hyperlinker
+
 See [`scripts/build.js`](scripts/build.js) for the implementation.
 
 ### Folder structure
