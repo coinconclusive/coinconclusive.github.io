@@ -1,0 +1,13 @@
+{
+  "sources": "./sources/",
+  "public": "./public/",
+  "blog": "blog/",
+  "template": {
+    "static": [".html", ".css"],
+    "blog": "blog/blog.html"
+  },
+  "index": {
+    "source": "index.md",
+    "html": "index.html"
+  }
+}

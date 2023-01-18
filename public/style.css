@@ -31,15 +31,49 @@ body {
   background-color: #151513;
 }
 
+.md header {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #585343;
+}
+
 hgroup {
   color: #8c8266;
   text-align: center;
 }
 
-h1 { font-size: 28pt; }
-hgroup p { font-size: 14pt; }
+hgroup h1 { font-size: 28pt; }
+hgroup p { font-size: 14pt; margin: 1rem; }
 
-main {
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+nav > *:not(:only-child):not(:first-child) {
+  border-left: solid 1px #585343;
+  text-align: center;
+  padding-left: 0.5rem;
+}
+
+a[role=button] {
+  text-decoration: none;
+}
+
+time { color: #585343; }
+time.suffix::before { content: "- "; color: inherit; }
+
+.md main h1 { font-size: 20pt; }
+.md main h2 { font-size: 18pt; }
+.md main h3 { font-size: 16pt; }
+.md main h4 { font-size: 15pt; }
+.md main h5 { font-size: 14pt; }
+.md main h6 { font-size: 13pt; }
+.md main p { font-size: 12pt; }
+
+*:not(.md) > main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
