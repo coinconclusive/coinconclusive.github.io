@@ -10,19 +10,24 @@
   <header>
     <hgroup>
       <h1>annie in waffleland</h1>
-      <p>Hi! I'm annie :v</p>
+      <p>Hi! I'm annie :v <br><a href="https://en.pronouns.page/@waffle-annie">she/her</a></p>
     </hgroup>
   </header>
   <main>
     <section id="about">
       <span>About Me</span>
-      <p>My name is Anne Chadeeva and I'm at my best when programming! Right now I'm mostly doing programming language design and game development. Sometimes it's kernel development and other low-level things.</p>
+      <p>My name is Anne Chadeeva (I prefer annie) and I'm at my best when programming! Right now I'm mostly doing programming language design and game development. Sometimes it's kernel development and other low-level things.</p>
     </section>
     <section id="blog">
       <span>Blog</span>
       <p>
-        <a href="/blog/${postIndex[postIndex.length - 1].id}">Latest: ${postIndex[postIndex.length - 1].title}</a>
-        <a href="/blog">More...</a>
+        ${postIndex.length > 5 ? `Latest posts` : `Posts`}:
+        <ul>${new Array(Math.min(postIndex.length, 5)).fill(0).map((_, i) => `
+          <li><a href="/blog/${postIndex[i].id}">${postIndex[i].title}</a> ${
+              postIndex[i].author != `Anne Chadeeva` ? `(by ${postIndex[i].author})` : ``
+            } - ${postIndex[i].description}</li>
+        `.trim()).join('\n')}</ul>
+        ${postIndex.length > 5 ? `<a href="/blog">More...</a>` : ``}
       </p>
     </section>
     <section id="hobbies">

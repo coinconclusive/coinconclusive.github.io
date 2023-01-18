@@ -172,7 +172,7 @@ console.group(`Generating static content to ${config.publicDir}`);
  * @return {string}
  */
  function processTemplate(source, context) {
-  const sortedPostIndex = Object.values(postIndex).sort((a, b) => a.date - b.date);
+  const sortedPostIndex = Object.values(postIndex).sort((a, b) => b.date - a.date);
   const index = sortedPostIndex.findIndex(post => context ? (post.id == context.id) : false);
   context = {
     ...context,
