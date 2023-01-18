@@ -5,25 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../style.css">
-  <title>Annie's Blog - ${title}</title>
+  <title>Annie's Blog - Test post</title>
 </head>
 <body class="md">
   <header>
     <hgroup>
       <h1>
-        ${title}
+        Test post
       </h1>
-      <p>${description} <time class="suffix" datetime="${date.toJSON()}">${date.toLocaleString('en-GB', { timeZone: 'UTC' })}</time></p>
+      <p>Testing the system... <time class="suffix" datetime="2023-01-17T21:47:30.021Z">17/01/2023, 21:47:30</time></p>
     </hgroup>
     <nav>
-      ${nav.previous ? `<a href="/blog/${nav.previous}">back</a>` : ``}
+      <a href="/blog/first">back</a>
       <a href="/blog">index</a>
       <a href="/">home</a>
-      ${nav.next ? `<a href="/blog/${nav.next}">next</a>` : ``}
+      <a href="/blog/test2">next</a>
     </nav>
   </header>
   <main>
-    ${postContent}
+    <h1 id="testing">Testing...</h1>
+<p>You can see the source code on my github.</p>
+
   </main>
   <footer>Copyright 2023 Anne Chadeeva - All rights reserved.</footer>
 </body>

@@ -11,11 +11,20 @@
   <header>
     <hgroup>
       <h1>waffle blog</h1>
-      <p>My blog</p>
+      <p>Annie's blog, with stuff</p>
     </hgroup>
+    <nav>
+      <a href="/blog/${postIndex[postIndex.length - 1].id}">latest</a>
+      <a href="/">home</a>
+    </nav>
   </header>
   <main>
-    ${genIndexHtml(blogIndex)}
+    ${Object.values(postIndex).map(post => `
+      <section>
+        <span><a href="/blog/${post.id}">${post.title}</a></span>
+        <p>${post.description} <time class="suffix" datetime="${post.date}">${post.date.toLocaleDateString('en-GB', { timeZone: 'UTC' })}</time></p>
+      </section>
+    `.trim()).join('\n')}
   </main>
   <footer>Copyright 2023 Anne Chadeeva - All rights reserved.</footer>
 </body>
