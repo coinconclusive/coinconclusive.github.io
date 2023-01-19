@@ -35,9 +35,9 @@ jobs:
         with:
           node-version: 19.x
       - name: Install dependencies
-        run: npm install --omit=dev
+        run: npm install -g @waffle-annie/ahh
       - name: Build pages
-        run: node scripts/build.js
+        run: ahh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
