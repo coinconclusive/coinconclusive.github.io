@@ -46,6 +46,8 @@ See [`scripts/build.js`](scripts/build.js) for the implementation.
     - post2
       - index.md
       - data.json
+    - post3 -- skipped, no index file
+      - music.wav
 - public
   - index.html -- processed as template
   - style.css

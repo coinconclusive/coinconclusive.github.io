@@ -11,7 +11,7 @@ const marked = require('marked');
 //   groupIndentation: 2
 // });
 
-console.group("ahh, you need a blog! will do :)");
+console.log("\033[32mahh\033[0m, you need a blog! will do :)");
 
 const configFile = './ahh.json';
 
@@ -76,7 +76,7 @@ const sources = [];
 console.group(`Reading sources from ${config.sourcesDir}`);
 for(const file of fs.readdirSync(config.sourcesDir)) {
   const fileFull = path.join(config.sourcesDir, file);
-  console.group(`Reading file ${fileFull}`);
+  console.group(`Indexing file ${fileFull}`);
   if(file == path.basename(config.blogDir)) {
     console.log(`Blog directory (${file}), skipping.`);
     console.groupEnd();
@@ -136,6 +136,7 @@ for(const blogDir of fs.readdirSync(path.join(config.sourcesDir, config.blogDir)
 }
 
 function remkdirMaybeSync(p) {
+  let remake = false;
   if(fs.existsSync(p)) {
     if(!fs.statSync(p).isDirectory()) {
       console.error(`${p} is not a directory`);
@@ -143,8 +144,9 @@ function remkdirMaybeSync(p) {
     }
     console.log(`Removing directory ${p}`);
     fs.rmSync(p, { force: true, recursive: true });
+    remake = true;
   }
-  console.log(`Creating directory ${p}`);
+  console.log(`${remake ? `Recreating` : `Creating`} directory ${p}`);
   fs.mkdirSync(p);
 }
 
@@ -164,6 +166,7 @@ if(!fs.existsSync(config.blogTemplate) || !fs.statSync(config.blogTemplate).isFi
   console.log(`Blog template file found (${config.blogTemplate})`);
 }
 
+console.groupEnd();
 console.groupEnd();
 console.group(`Generating static content to ${config.publicDir}`);
 
@@ -188,6 +191,47 @@ console.group(`Generating static content to ${config.publicDir}`);
     (...entries.map(([_, v]) => v));
 }
 
+function copyMaybeTemplated(source, destination) {
+  if(fs.statSync(source).isFile()) {
+    if(config.staticTemplateExts.includes(path.extname(source))) {
+      console.group(`Generating template ${source} to ${destination}`);
+      const content = fs.readFileSync(source).toString();
+      fs.writeFileSync(destination, processTemplate(content));
+      console.groupEnd();
+    } else {
+      console.group(`Copying from ${source} to ${destination}`)
+  
+      if(fs.existsSync(destination)) {
+        console.log(`Removing old ${destination}`);
+        fs.rmSync(destination, { recursive: true });
+      }
+  
+      if(path.basename(source) == config.sourceIndex) {
+        console.log(`Source file (${path.basename(source)}), skipping`);
+      } else {
+        fs.cpSync(source, destination, { recursive: true });
+      }
+      console.groupEnd();
+    }
+  } else { // source is a directory
+    console.group(`Copying directory ${source} to ${destination}`);
+    if(fs.existsSync(destination) && fs.statSync(destination).isFile()) {
+      console.log(`Will not overwrite ${destination} as it is a file, aborting.`);
+      process.exit(1);
+    }
+    if(!fs.existsSync(destination)) {
+      console.log(`Creating directory ${destination}`);
+      fs.mkdirSync(destination);
+    }
+    for(const file of fs.readdirSync(source)) {
+      console.group(`Copying ${file}`);
+      copyMaybeTemplated(path.join(source, file), path.join(destination, file));
+      console.groupEnd();
+    }
+    console.groupEnd();
+  }
+}
+
 const blogHtmlTemplate = fs.readFileSync(config.blogTemplate).toString();
 
 remkdirMaybeSync(config.publicDir);
@@ -195,36 +239,10 @@ mkdirMaybeSync(path.join(config.publicDir, config.blogDir));
 
 console.group(`Generating files to ${path.join(config.publicDir, config.blogDir)}`);
 for(const file of sources) {
-  const destination = path.join(config.publicDir, file);
-  const source = path.join(config.sourcesDir, file);
-  if(config.staticTemplateExts.includes(path.extname(file))) {
-    console.group(`Generating ${source} to ${destination}`);
-    if(!fs.statSync(source).isFile()) {
-      console.error(`${file} is not a file, skipping`);
-      console.groupEnd();
-      continue;
-    }
-    const content = fs.readFileSync(source).toString();
-    fs.writeFileSync(destination, processTemplate(content));
-    console.groupEnd();
-  } else {
-    console.group(`Copying from ${source} to ${destination}`)
-
-    if(fs.existsSync(destination)) {
-      console.log(`Removing old ${destination}`);
-      fs.rmSync(destination);
-    }
-
-    if(file == config.sourceIndex) {
-      console.log(`Source file (${file}), skipping`);
-      console.groupEnd();
-      continue;
-    }
-
-    console.groupEnd();
-
-    fs.cpSync(source, destination, { recursive: true });
-  }
+  copyMaybeTemplated(
+    path.join(config.sourcesDir, file),
+    path.join(config.publicDir, file)
+  );
 }
 console.groupEnd();
 
@@ -239,48 +257,15 @@ for(const [id, post] of Object.entries(postIndex)) {
   {
     const source = path.join(config.sourcesDir, config.blogDir, config.htmlIndex)
     const destination = path.join(config.publicDir, config.blogDir, config.htmlIndex);
-    console.group(`Copying from ${source} to ${destination}`)
-
-    if(!fs.existsSync(source)) {
-      console.log(`Blog index (${source}) does not exist, skipping.`);
-    } else {
-      if(fs.existsSync(destination)) {
-        console.log(`Removing old ${destination}`);
-        fs.rmSync(destination);
-      }
-
-      if(!fs.statSync(source).isFile()) {
-        console.error(`${file} is not a file, skipping`);
-      } else {
-        const content = fs.readFileSync(source).toString();
-        fs.writeFileSync(destination, processTemplate(content));
-      }
-    }
-    console.groupEnd();
+    copyMaybeTemplated(source, destination);
   }
 
   for(const file of post.files) {
     const destination = path.join(config.publicDir, config.blogDir, post.id, file);
-    const source = path.join(config.sourcesDir, config.blogDir, post.id, file)
-    console.group(`Copying from ${source} to ${destination}`)
-
-    if(fs.existsSync(destination)) {
-      console.log(`Removing old ${destination}`);
-      fs.rmSync(destination);
-    }
-
-    if(file == config.sourceIndex) {
-      console.log(`Source file (${file}), skipping`);
-      console.groupEnd();
-      continue;
-    }
-
-    console.groupEnd();
-
-    fs.cpSync(source, destination, { recursive: true });
+    const source = path.join(config.sourcesDir, config.blogDir, post.id, file);
+    copyMaybeTemplated(source, destination);
   }
   console.groupEnd();
 }
 
-console.groupEnd();
 console.groupEnd();
