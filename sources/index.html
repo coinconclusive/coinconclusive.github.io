@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Anne Chadeeva</title>
+  <title>Anne Redko</title>
 </head>
 <body>
   <header>
     <hgroup>
       <h1>annie in waffleland</h1>
-      <p>Hi! I'm annie :v <br><a href="https://en.pronouns.page/@waffle-annie">she/her</a></p>
+      <p>Hi! I'm annie :v <br><a href="https://en.pronouns.page/@waffle-annie">she/they</a></p>
     </hgroup>
   </header>
   <main>
     <section id="about">
       <span>About Me</span>
-      <p>My name is Anne Chadeeva (I prefer annie) and I'm at my best when programming! Right now I'm mostly doing programming language design and game development. Sometimes it's kernel development and other low-level things.</p>
+      <p>My name is Anne Redko and I'm at my best when programming! Right now I'm mostly doing programming language design and game development. Sometimes it's kernel development and other low-level things.</p>
     </section>
     <section id="blog">
       <span>Blog</span>
@@ -24,7 +24,7 @@
         ${postIndex.length > 5 ? `Latest posts` : `Posts`}:
         <ul>${new Array(Math.min(postIndex.length, 5)).fill(0).map((_, i) => `
           <li><a href="/blog/${postIndex[i].id}">${postIndex[i].title}</a> ${
-              postIndex[i].author != `Anne Chadeeva` ? `(by ${postIndex[i].author})` : ``
+              postIndex[i].author != `Anne Redko` ? `(by ${postIndex[i].author})` : ``
             } - ${postIndex[i].description}</li>
         `.trim()).join('\n')}</ul>
         ${postIndex.length > 5 ? `<a href="/blog">More...</a>` : ``}
@@ -39,7 +39,7 @@
           <li>Neography - I like drawing pretty letters and calligraphy in general.</li>
           <li>Worldbuilding - My brain comes up with a lot of different stuff.</li>
           <li>Game design - I'm making a game after all!</li>
-          <li>Music - I play piano, guitar and have been trying to learn drums.</li>
+          <li>Music - I play piano, guitar and am trying to learn drums.</li>
           <li>Sports - Not right now (no time), but I did track and field and was pretty good fwiw.</li>
         </ul>
       </p>
@@ -48,27 +48,25 @@
       <span>Projects</span>
       <p>Here are some projects I'm working on:
         <ul>
+          <li><a href="https://github.com/coinconclusive/AnneC">AnneC</a> - A C23 compiler with some custom extensions.</li>
           <li><a href="https://dragoncore-game.web.app/">DragonCore</a> - A game I'm making with friends.</li>
           <li><a href="https://github.com/peque-studio/dce">DCE</a> - Vulkan-based game engine written in C (for DragonCore).</li>
-          <li><a href="https://waffle-annie.codeberg.page/tinyself">Tinyself</a> - Message-based programming language (I'm currently doing a major rework).</li>
-          <li><a rel="me" href="https://codeberg.org/waffle-annie">Codeberg, waffle-annie</a> - some other projects.</li>
         </ul>
       </p>
     </section>
     <section id="social">
       <span>Social</span>
-      <p>I usually go by @monomere online, here are some links to some of my stuff:
+      <p>I usually go by @monomere or @coinconclusive online, here are some links to some of my stuff:
         <ul>
           <li><a rel="me" href="https://types.pl/@monomere">Mastodon, @monomere@types.pl</a> - I toot sometimes.</li>
-          <li><a rel="me" href="https://github.com/waffle-annie">Github, waffle-annie</a> - currently just this website.</li>
+          <li><a rel="me" href="https://github.com/coinconclusive">Github, coinconclusive</a> - AnneC, this website and some other stuff.</li>
           <li><a rel="me" href="https://github.com/somerandomdev49">Github, somerandomdev49</a> - most of my projects.</li>
           <li><a rel="me" href="https://gitlab.com/somerandomdev49">Gitlab, somerandomdev49</a> - most of my other projects.</li>
           <li><a rel="me" href="https://codeberg.org/waffle-annie">Codeberg, waffle-annie</a> - some other projects.</li>
-          <li><a rel="me" href="https://discordapp.com/users/very annie#7682">Discord, very annie#7682</a> - DMs open.</li>
         </ul>
       </p>
     </section>
   </main>
-  <footer>Copyright 2023 Anne Chadeeva - All rights reserved.</footer>
+  <footer>Copyright 2023 Anne Redko - All rights reserved.</footer>
 </body>
 </html>

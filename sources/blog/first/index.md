@@ -2,7 +2,7 @@
 title: First Post!
 description: Introduction to my blog
 date: 2023-01-17T21:43:49.852Z
-author: Anne Chadeeva
+author: Anne Redko
 ---
 
 # Hello! This is my first blog :)
