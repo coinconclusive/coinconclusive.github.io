@@ -2,7 +2,7 @@
 title: "Test post #2"
 description: More testing
 date: 2023-01-18T20:11:42.035Z
-author: Anne Redko
+author: coinconclusive
 ---
 
 # Checking if the UI works

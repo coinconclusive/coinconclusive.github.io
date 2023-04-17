@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="/font/VictorMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/font/VictorMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../style.css">
-  <title>Annie's Blog - ${title}</title>
+  <meta name="description" content="${description}">
+  <title>Emma's Blog - ${title}</title>
 </head>
 <body class="md">
   <header>
@@ -15,7 +18,7 @@
       </h1>
       <p>
         ${description} <time class="suffix" datetime="${date.toJSON()}">${date.toLocaleString('en-GB', { timeZone: 'UTC' })}</time>
-        ${author != `Anne Redko` ? `<br>By ${author}` : ``}
+        ${author != `coinconclusive` ? `<br>By ${author}` : ``}
       </p>
     </hgroup>
     <nav>
@@ -28,6 +31,6 @@
   <main>
     ${postContent}
   </main>
-  <footer>Copyright 2023 Anne Redko${author != `Anne Redko` ? `, ${author}` : ``} - All rights reserved.</footer>
+  <footer>Copyright 2023 Emma Redko${author != `coinconclusive` ? `, ${author}` : ``} - All rights reserved.</footer>
 </body>
 </html>

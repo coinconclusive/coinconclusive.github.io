@@ -3,7 +3,7 @@
   "public": "./public/",
   "blog": "blog/",
   "template": {
-    "static": [".html", ".css"],
+    "static": [".html"],
     "blog": "blog/blog.html"
   },
   "index": {

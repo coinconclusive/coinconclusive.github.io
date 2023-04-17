@@ -1,9 +1,26 @@
 @font-face {
-  font-family: 'Fairfax HD';
-  src: url(font/FairfaxHD.ttf);
+  font-family: "Victor Mono";
+  font-weight: normal;
+  src: url(font/VictorMono-Regular.woff2) format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Victor Mono";
+  font-weight: bold;
+  src: url(font/VictorMono-Bold.woff2) format("woff2");
+  font-display: swap;
 }
 
 * { box-sizing: border-box; }
+
+:root {
+  --html-bg-color: #0d0d0c;
+  --body-bg-color: #151513;
+  --fg-color1: #b1a891;
+  --fg-color3: #afa487;
+  --fg-color2: #81816a;
+}
 
 html {
   width: 100vw;
@@ -16,9 +33,9 @@ html {
   display: flex;
   justify-content: center;
 
-  background-color: #0d0d0c;
-  color: #ab9d78;
-  font-family: 'Fairfax HD', monospace;
+  background-color: var(--html-bg-color);
+  color: var(--fg-color1);
+  font-family: 'Victor Mono', serif;
 }
 
 body {
@@ -26,18 +43,19 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 1rem;
-  width: 50%;
+  width: 60%;
   min-width: 350px;
-  background-color: #151513;
+  background-color: var(--body-bg-color);
+  font-size: 14pt;
 }
 
 .md header {
   padding-bottom: 0.5rem;
-  border-bottom: 1px dashed #585343;
+  border-bottom: 1px dashed var(--fg-color2);
 }
 
 hgroup {
-  color: #8c8266;
+  color: var(--fg-color3);
   text-align: center;
 }
 
@@ -53,7 +71,7 @@ nav {
 }
 
 nav > *:not(:only-child):not(:first-child) {
-  border-left: solid 1px #585343;
+  border-left: solid 1px var(--fg-color2);
   text-align: center;
   padding-left: 0.5rem;
 }
@@ -62,16 +80,16 @@ a[role=button] {
   text-decoration: none;
 }
 
-time { color: #585343; }
-time.suffix::before { content: "- "; color: inherit; }
+time { color: var(--fg-color2); }
+time.suffix::before { content: "\2014  "; color: inherit; }
 
 .md main h1 { font-size: 20pt; }
-.md main h2 { font-size: 18pt; }
-.md main h3 { font-size: 16pt; }
-.md main h4 { font-size: 15pt; }
-.md main h5 { font-size: 14pt; }
-.md main h6 { font-size: 13pt; }
-.md main p { font-size: 12pt; }
+.md main h2 { font-size: 19pt; }
+.md main h3 { font-size: 18pt; }
+.md main h4 { font-size: 17pt; }
+.md main h5 { font-size: 16pt; }
+.md main h6 { font-size: 15pt; }
+.md main p { font-size: 14pt; }
 
 *:not(.md) > main {
   display: flex;
@@ -91,14 +109,14 @@ main > section > span {
   align-items: center;
   justify-content: center;
 
-  color: #585343;
+  color: var(--fg-color2);
   width: 100%;
 }
 
 main > section > span::after {
   content: "";
   flex-grow: 1;
-  border-top: 1px dashed #585343;
+  border-top: 1px dashed var(--fg-color2);
   margin-left: 1rem;
 }
 
@@ -108,6 +126,7 @@ main > section > p {
 
 a {
   color: inherit;
+  font-weight: bold;
   text-decoration: underline;
 }
 
@@ -119,16 +138,21 @@ ul {
 
 li {
   margin: 0;
+  /* margin-left: 1rem; */
   padding: 0;
 }
 
 li::before {
   content: "-";
-  color: #585343;
+  color: var(--fg-color2);
   margin-right: 0.5rem;
 }
 
 footer {
   text-align: center;
-  color: #585343;
+  color: var(--fg-color2);
+}
+
+code, pre {
+  font-family: "Victor Mono";
 }

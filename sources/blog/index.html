@@ -4,14 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="/font/VictorMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/font/VictorMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
-  <title>Annie's Blog</title>
+  <meta name="description" content="Emma's (@coinconclusive) personal blog! Mostly about
+                                    programming language design, gamedev, low-level things
+                                    and some personal stuff.">
+  <title>Emma's Blog</title>
 </head>
 <body>
   <header>
     <hgroup>
       <h1>waffle blog</h1>
-      <p>Annie's blog, with stuff</p>
+      <p>Emma's blog, with stuff</p>
     </hgroup>
     <nav>
       <a href="/blog/${postIndex[0].id}">latest</a>
@@ -24,12 +29,12 @@
         <span><a href="/blog/${post.id}">${post.title}</a></span>
         <p>
           <a style="text-decoration: none;" href="/blog/${post.id}">${post.description}</a>
-          ${post.author != `Anne Redko` ? `(by ${post.author})` : ``}
+          ${post.author != `coinconclusive` ? `(by ${post.author})` : ``}
           <time class="suffix" datetime="${post.date}">${post.date.toLocaleDateString('en-GB', { timeZone: 'UTC' })}</time>
         </p>
       </section>
     `.trim()).join('\n')}
   </main>
-  <footer>Copyright 2023 Anne Redko - All rights reserved.</footer>
+  <footer>Copyright 2023 Emma Redko - All rights reserved.</footer>
 </body>
 </html>

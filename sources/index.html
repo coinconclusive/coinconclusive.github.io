@@ -3,20 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preload" href="/font/VictorMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/font/VictorMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
-  <title>Anne Redko</title>
+  <meta name="description" content="Emma's (@coinconclusive) personal website!
+                                    Has a blog and links to all the relevant stuff about her.">
+  <title>Emma in Waffleland</title>
 </head>
 <body>
   <header>
     <hgroup>
-      <h1>annie in waffleland</h1>
-      <p>Hi! I'm annie :v <br><a href="https://en.pronouns.page/@waffle-annie">she/they</a></p>
+      <h1>emma in waffleland</h1>
+      <p>Hi!<br><a href="https://en.pronouns.page/@coinconclusive">she/they</a></p>
     </hgroup>
   </header>
   <main>
     <section id="about">
       <span>About Me</span>
-      <p>My name is Anne Redko and I'm at my best when programming! Right now I'm mostly doing programming language design and game development. Sometimes it's kernel development and other low-level things.</p>
+      <p>My name is Emma and I'm at my best when programming! Right now I'm mostly doing programming language design and game development. Sometimes it's kernel development and other low-level things.</p>
     </section>
     <section id="blog">
       <span>Blog</span>
@@ -24,8 +28,8 @@
         ${postIndex.length > 5 ? `Latest posts` : `Posts`}:
         <ul>${new Array(Math.min(postIndex.length, 5)).fill(0).map((_, i) => `
           <li><a href="/blog/${postIndex[i].id}">${postIndex[i].title}</a> ${
-              postIndex[i].author != `Anne Redko` ? `(by ${postIndex[i].author})` : ``
-            } - ${postIndex[i].description}</li>
+              postIndex[i].author != `coinconclusive` ? `(by ${postIndex[i].author})` : ``
+            } &mdash; ${postIndex[i].description}</li>
         `.trim()).join('\n')}</ul>
         ${postIndex.length > 5 ? `<a href="/blog">More...</a>` : ``}
       </p>
@@ -35,12 +39,12 @@
       <p>
         I'm interested in a whole lot of different stuff apart from programming and software design/architecture:
         <ul>
-          <li>Linguistics - I dabble in conlanging, mostly for fun.</li>
-          <li>Neography - I like drawing pretty letters and calligraphy in general.</li>
-          <li>Worldbuilding - My brain comes up with a lot of different stuff.</li>
-          <li>Game design - I'm making a game after all!</li>
-          <li>Music - I play piano, guitar and am trying to learn drums.</li>
-          <li>Sports - Not right now (no time), but I did track and field and was pretty good fwiw.</li>
+          <li><b>Linguistics</b> &mdash; I dabble in conlanging, mostly for fun.</li>
+          <li><b>Neography</b> &mdash; I like drawing pretty letters and calligraphy in general.</li>
+          <li><b>Worldbuilding</b> &mdash; My brain comes up with a lot of different stuff.</li>
+          <li><b>Game design</b> &mdash; I'm making a game after all!</li>
+          <li><b>Music</b> &mdash; I play piano, guitar and am trying to learn drums.</li>
+          <li><b>Sports</b> &mdash; Not right now (no time), but I did track and field and was pretty good fwiw.</li>
         </ul>
       </p>
     </section>
@@ -48,9 +52,9 @@
       <span>Projects</span>
       <p>Here are some projects I'm working on:
         <ul>
-          <li><a href="https://github.com/coinconclusive/AnneC">AnneC</a> - A C23 compiler with some custom extensions.</li>
-          <li><a href="https://dragoncore-game.web.app/">DragonCore</a> - A game I'm making with friends.</li>
-          <li><a href="https://github.com/peque-studio/dce">DCE</a> - Vulkan-based game engine written in C (for DragonCore).</li>
+          <li><a href="https://github.com/coinconclusive/AnneC">AnneC</a> &mdash; A C23 compiler with some custom extensions.</li>
+          <li><a href="https://dragoncore-game.web.app/">DragonCore</a> &mdash; A game I'm making with friends.</li>
+          <li><a href="https://github.com/peque-studio/dce">DCE</a> &mdash; Vulkan-based game engine written in C (for DragonCore).</li>
         </ul>
       </p>
     </section>
@@ -58,15 +62,15 @@
       <span>Social</span>
       <p>I usually go by @monomere or @coinconclusive online, here are some links to some of my stuff:
         <ul>
-          <li><a rel="me" href="https://types.pl/@monomere">Mastodon, @monomere@types.pl</a> - I toot sometimes.</li>
-          <li><a rel="me" href="https://github.com/coinconclusive">Github, coinconclusive</a> - AnneC, this website and some other stuff.</li>
-          <li><a rel="me" href="https://github.com/somerandomdev49">Github, somerandomdev49</a> - most of my projects.</li>
-          <li><a rel="me" href="https://gitlab.com/somerandomdev49">Gitlab, somerandomdev49</a> - most of my other projects.</li>
-          <li><a rel="me" href="https://codeberg.org/waffle-annie">Codeberg, waffle-annie</a> - some other projects.</li>
+          <li><a rel="me" href="https://types.pl/@monomere">Mastodon, @monomere@types.pl</a> &mdash; I toot sometimes.</li>
+          <li><a rel="me" href="https://github.com/coinconclusive">Github, coinconclusive</a> &mdash; AnneC, this website and some other stuff.</li>
+          <li><a rel="me" href="https://github.com/somerandomdev49">Github, somerandomdev49</a> &mdash; most of my projects.</li>
+          <li><a rel="me" href="https://gitlab.com/somerandomdev49">Gitlab, somerandomdev49</a> &mdash; most of my other projects.</li>
+          <li><a rel="me" href="https://codeberg.org/waffle-annie">Codeberg, waffle-annie</a> &mdash; some other projects.</li>
         </ul>
       </p>
     </section>
   </main>
-  <footer>Copyright 2023 Anne Redko - All rights reserved.</footer>
+  <footer>Copyright 2023 Emma Redko - All rights reserved.</footer>
 </body>
 </html>
